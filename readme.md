@@ -1,2 +1,1 @@
-Hello World,
-
+All output PDF's can be found inside the corresponding lab /build.

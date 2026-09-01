@@ -70,6 +70,49 @@ Re-calculate now where each bridge resistor features \(R=114\Omega\):
     \end{aligned}
 \end{equation}
 
-\subsection{Question D4}
+\newpage
 
+\subsection{Question D4}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/instrumentation_amplifier.png}
+    \caption{Instrumentation amplifier.}
+    \label{fig:intsrumentation_amplifier}
+\end{figure}
+
+We wish to find an expression for \(\frac{V_{out}}{V_{in}}\), Let us denote \(V_{OA1},\quad V_{OA2}\) as opamp 1 and 2's output voltages respectively:
+\begin{equation}
+    I_{R2} = \frac{V_1 - V_2}{R2}
+\end{equation}
+Notice that the current must be equal for \(I_{R1} = I_{R2} = I_{R3}\), therefore:
+\begin{equation}
+    \begin{aligned}
+        I_{R1} &= \frac{V_{OA1} - V_1}{R1} \\
+        V_{OA1} - V_1 &= I_{R1} \cdot R1 \\
+        V_{OA1} &= I_{R1} \cdot R1 + V_1 \\
+        V_{OA1} &= \frac{V_1 - V_2}{R2} \cdot R1 + V_1
+    \end{aligned}
+\end{equation}
+This can similarly be repeated for \(V_{OA2}\) to get:
+\begin{equation}
+    \begin{aligned}
+        I_{R3} &= \frac{V_2 - V_{OA2}}{R3} \\
+        V_2 - V_{OA2} &= I_{R3} \cdot R3 \\
+        V_{OA2} &= V_2 - I_{R3} \cdot R3 \\
+        V_{OA2} &= V_2 - \frac{V_1 - V_2}{R2} \cdot R3
+    \end{aligned}
+\end{equation}
+Let us denote the inputs of the final op-amp as \(V_{+}, \quad V_{-}\), we then get:
+\begin{equation}
+    \begin{aligned}
+        V_- = V_+ \\
+        V_+ = V_{OA2} \cdot \frac{R7}{R6+R7} \\
+        \text{KCL \@ Node V-} \\
+        \frac{V_{OA1}-V_-}{R4} - \frac{V_- - V_{out}}{R5} = 0 \\
+        \frac{V_{OA1}- V_-}{R4}=\frac{V_- - V_{out}}{R5} \\
+        V_- - V_{out} = R5 \cdot \frac{V_{OA1 - V_-}}{R4} \\
+        V_{out} = V_- - R5 \cdot \frac{V_{OA1} - V_-}{R4} \\ 
+        V_{out} = \left( V_2 - \frac{V_1 - V_2}{R2} \cdot R3 \right) \cdot \frac{R7}{R6+R7} - R5 \cdot \frac{\left( \frac{V_1 - V_2}{R2} \cdot R1 + V_1 \right) - \left( \left( V_2 - \frac{V_1 - V_2}{R2} \cdot R3 \right) \cdot \frac{R7}{R6+R7} \right)}{R4}
+    \end{aligned}
+\end{equation}
 \end{document}
