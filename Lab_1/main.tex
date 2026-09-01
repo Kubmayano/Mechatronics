@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\author{Elliot O. Cornier}
+\date{\today}
+
+\begin{document}
+\section{Pre-lab design}
+\subsection{Question D1}
+The following model describes the changes in electrical resistance as a function of strain:
+\begin{equation}
+    \epsilon = \frac{dR}{RG'}
+\end{equation}
+Where:
+\begin{itemize}
+    \item \(\epsilon\) represents strain factor
+    \item \(R\) is the nominal resistance
+    \item \(dR\) is the change in resistance
+    \item \(G\) is the gauge factor.
+\end{itemize}
+Calculate the change in resistance \(dR\) if \(R=120\Omega\), \(G=2\) and \(\epsilon=0.01\):
+\begin{equation}
+    \begin{aligned}
+        dR&=\epsilon RG' \\
+        dR&=0.01 \cdot 120\Omega \cdot 2 \\
+        dR&=2.4\Omega
+    \end{aligned}
+\end{equation}
+
+\subsection{Question D2}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/wheatstone bridge.png}
+    \caption{Wheatstone bridge.}
+    \label{fig:wheatstone}
+\end{figure}
+Let the strain gauge resistance be represented by \(Rs\):
+\begin{equation}
+    Rs=R+dR
+\end{equation}
+Let the other three resistors have the same nominal resistance \(Rs\) as the strain gauge. 
+The expression for \(V_{out}\) becomes:
+\begin{equation}
+    \begin{aligned}
+        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{Rs}{Rs+R} \\
+        V_{out}&=V_b \left( \frac{1}{2} - \frac{Rs}{Rs + R} \right) \\
+        V_{out}&=V_b \left( \frac{1}{2} - \frac{R+dR}{2R+dR} \right)
+    \end{aligned}
+\end{equation}
+
+\subsection{Question D3}
+Consider \(V_b=5V\), \(R=120\Omega\), calculate \(V_{out}\) for a 1\% strain:
+\begin{equation}
+    \begin{aligned}
+        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{Rs}{Rs+R} \\
+        V_{out}&=5V \cdot \frac{120\Omega}{240\Omega} - 5V \cdot \frac{120\Omega + 2.4\Omega}{120\Omega + 120\Omega + 2.4\Omega} \\
+        V_{out}&= 5V \left( \frac{1}{2} - \frac{122.4\Omega}{242.4\Omega} \right) \\
+        V_{out}&= -0.02475V
+    \end{aligned}
+\end{equation}
+Re-calculate now where each bridge resistor features \(R=114\Omega\):
+\begin{equation}
+    \begin{aligned}
+        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{Rs}{Rs+R} \\
+        V_{out}&=5V \cdot \frac{114\Omega}{114\Omega} - 5V \cdot \frac{120\Omega + 2.4\Omega}{120\Omega + 114\Omega + 2.4\Omega} \\
+        V_{out}&= 5V \left( \frac{1}{2} - \frac{122.4\Omega}{236.4\Omega} \right) \\
+        V_{out}&= -0.08883V
+    \end{aligned}
+\end{equation}
+
+\subsection{Question D4}
+
+\end{document}
