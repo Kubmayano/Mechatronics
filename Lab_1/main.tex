@@ -1,11 +1,8 @@
 \documentclass{article}
-
 \usepackage{amsmath}
 \usepackage{graphicx}
-
 \author{Elliot O. Cornier}
 \date{\today}
-
 \begin{document}
 \section{Pre-lab design}
 \subsection{Question D1}
@@ -28,7 +25,6 @@ Calculate the change in resistance \(dR\) if \(R=120\Omega\), \(G=2\) and \(\eps
         dR&=2.4\Omega
     \end{aligned}
 \end{equation}
-
 \subsection{Question D2}
 \begin{figure}[ht]
     \centering
@@ -36,25 +32,24 @@ Calculate the change in resistance \(dR\) if \(R=120\Omega\), \(G=2\) and \(\eps
     \caption{Wheatstone bridge.}
     \label{fig:wheatstone}
 \end{figure}
-Let the strain gauge resistance be represented by \(Rs\):
+Let the strain gauge resistance be represented by \(R_s\):
 \begin{equation}
-    Rs=R+dR
+    R_s=R+dR
 \end{equation}
-Let the other three resistors have the same nominal resistance \(Rs\) as the strain gauge. 
+Let the other three resistors have the same nominal resistance \(R_s\) as the strain gauge. 
 The expression for \(V_{out}\) becomes:
 \begin{equation}
     \begin{aligned}
-        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{Rs}{Rs+R} \\
-        V_{out}&=V_b \left( \frac{1}{2} - \frac{Rs}{Rs + R} \right) \\
+        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{R_s}{R_s+R} \\
+        V_{out}&=V_b \left( \frac{1}{2} - \frac{R_s}{R_s + R} \right) \\
         V_{out}&=V_b \left( \frac{1}{2} - \frac{R+dR}{2R+dR} \right)
     \end{aligned}
 \end{equation}
-
 \subsection{Question D3}
 Consider \(V_b=5V\), \(R=120\Omega\), calculate \(V_{out}\) for a 1\% strain:
 \begin{equation}
     \begin{aligned}
-        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{Rs}{Rs+R} \\
+        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{R_s}{R_s+R} \\
         V_{out}&=5V \cdot \frac{120\Omega}{240\Omega} - 5V \cdot \frac{120\Omega + 2.4\Omega}{120\Omega + 120\Omega + 2.4\Omega} \\
         V_{out}&= 5V \left( \frac{1}{2} - \frac{122.4\Omega}{242.4\Omega} \right) \\
         V_{out}&= -0.02475V
@@ -63,15 +58,13 @@ Consider \(V_b=5V\), \(R=120\Omega\), calculate \(V_{out}\) for a 1\% strain:
 Re-calculate now where each bridge resistor features \(R=114\Omega\):
 \begin{equation}
     \begin{aligned}
-        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{Rs}{Rs+R} \\
+        V_{out}&=V_b \cdot \frac{R}{R+R} - V_b \cdot \frac{R_s}{R_s+R} \\
         V_{out}&=5V \cdot \frac{114\Omega}{114\Omega} - 5V \cdot \frac{120\Omega + 2.4\Omega}{120\Omega + 114\Omega + 2.4\Omega} \\
         V_{out}&= 5V \left( \frac{1}{2} - \frac{122.4\Omega}{236.4\Omega} \right) \\
         V_{out}&= -0.08883V
     \end{aligned}
 \end{equation}
-
 \newpage
-
 \subsection{Question D4}
 \begin{figure}[ht]
     \centering
@@ -79,40 +72,71 @@ Re-calculate now where each bridge resistor features \(R=114\Omega\):
     \caption{Instrumentation amplifier.}
     \label{fig:intsrumentation_amplifier}
 \end{figure}
-
 We wish to find an expression for \(\frac{V_{out}}{V_{in}}\), Let us denote \(V_{OA1},\quad V_{OA2}\) as opamp 1 and 2's output voltages respectively:
 \begin{equation}
-    I_{R2} = \frac{V_1 - V_2}{R2}
+    I_{R_2} = \frac{V_1 - V_2}{R_2}
 \end{equation}
-Notice that the current must be equal for \(I_{R1} = I_{R2} = I_{R3}\), therefore:
+Notice that the current must be equal for \(I_{R_1} = I_{R_2} = I_{R_3}\), therefore:
 \begin{equation}
     \begin{aligned}
-        I_{R1} &= \frac{V_{OA1} - V_1}{R1} \\
-        V_{OA1} - V_1 &= I_{R1} \cdot R1 \\
-        V_{OA1} &= I_{R1} \cdot R1 + V_1 \\
-        V_{OA1} &= \frac{V_1 - V_2}{R2} \cdot R1 + V_1
+        I_{R_1} &= \frac{V_{OA1} - V_1}{R_1} \\
+        V_{OA1} - V_1 &= I_{R_1} \cdot R_1 \\
+        V_{OA1} &= I_{R_1} \cdot R_1 + V_1 \\
+        V_{OA1} &= \frac{V_1 - V_2}{R_2} \cdot R_1 + V_1
     \end{aligned}
 \end{equation}
 This can similarly be repeated for \(V_{OA2}\) to get:
 \begin{equation}
     \begin{aligned}
-        I_{R3} &= \frac{V_2 - V_{OA2}}{R3} \\
-        V_2 - V_{OA2} &= I_{R3} \cdot R3 \\
-        V_{OA2} &= V_2 - I_{R3} \cdot R3 \\
-        V_{OA2} &= V_2 - \frac{V_1 - V_2}{R2} \cdot R3
+        I_{R_3} &= \frac{V_2 - V_{OA2}}{R_3} \\
+        V_2 - V_{OA2} &= I_{R_3} \cdot R_3 \\
+        V_{OA2} &= V_2 - I_{R_3} \cdot R_3 \\
+        V_{OA2} &= V_2 - \frac{V_1 - V_2}{R_2} \cdot R_3
     \end{aligned}
 \end{equation}
 Let us denote the inputs of the final op-amp as \(V_{+}, \quad V_{-}\), we then get:
 \begin{equation}
     \begin{aligned}
-        V_- = V_+ \\
-        V_+ = V_{OA2} \cdot \frac{R7}{R6+R7} \\
-        \text{KCL \@ Node V-} \\
-        \frac{V_{OA1}-V_-}{R4} - \frac{V_- - V_{out}}{R5} = 0 \\
-        \frac{V_{OA1}- V_-}{R4}=\frac{V_- - V_{out}}{R5} \\
-        V_- - V_{out} = R5 \cdot \frac{V_{OA1 - V_-}}{R4} \\
-        V_{out} = V_- - R5 \cdot \frac{V_{OA1} - V_-}{R4} \\ 
-        V_{out} = \left( V_2 - \frac{V_1 - V_2}{R2} \cdot R3 \right) \cdot \frac{R7}{R6+R7} - R5 \cdot \frac{\left( \frac{V_1 - V_2}{R2} \cdot R1 + V_1 \right) - \left( \left( V_2 - \frac{V_1 - V_2}{R2} \cdot R3 \right) \cdot \frac{R7}{R6+R7} \right)}{R4}
+        V_{out}
+        &= \left( V_2 - \frac{V_1 - V_2}{R_2}R_3 \right)
+        \frac{R_7}{R_6+R_7} \\
+        &\quad - \frac{R_5}{R_4}
+        \Bigg[
+        \left( \frac{V_1 - V_2}{R_2}R_1 + V_1 \right) \\
+        &\qquad -
+        \left(
+        V_2 - \frac{V_1 - V_2}{R_2}R_3
+        \right)
+        \frac{R_7}{R_6+R_7}
+        \Bigg]
     \end{aligned}
 \end{equation}
+The above equation can be simplified into:
+\begin{equation}
+    \begin{aligned}
+        V_{out}
+        &=
+        \frac{
+            V_2\left[
+                R_7(R_4+R_5)(R_2+R_3)
+                + R_1R_5(R_6+R_7)
+            \right]
+        }{
+            R_2R_4(R_6+R_7)
+        }
+        \\[2mm]
+        &\quad -
+        \frac{
+            V_1\left[
+                R_3R_7(R_4+R_5)
+                + R_5(R_1+R_2)(R_6+R_7)
+            \right]
+        }{
+            R_2R_4(R_6+R_7)
+        }
+    \end{aligned}
+\end{equation}
+
+\subsection{Question D5}
+
 \end{document}
